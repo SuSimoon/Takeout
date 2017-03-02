@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+	<class name="cn.takeout.customer.Customer" table="customer">	
+		<!-- 1.唯一标识 -->
+		<id name="cid" column="id">
+			<generator class="native"/>
+		</id>
+		<!-- 2.普通属性 -->
+		<property name="cname"/>
+		<property name="email"/>
+		<property name="state"/>
+		<property name="code"/>
+	</class>
+</hibernate-mapping>
