@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -186,23 +186,14 @@
 		<div class="container"> 
 			<h3 class="w3ls-title w3ls-title1">注册账户</h3>  
 			<div class="login-agileinfo"> 
-				<form action="${pageContext.request.contextPath}/customer_signup" method="post"> 
-					<input class="agile-ltext" type="text" name="cname" placeholder="用户名" required="">
-					<input class="agile-ltext" type="email" name="email" placeholder="邮箱" required="">
-					<input class="agile-ltext" type="password" name="password" placeholder="密码" required="">
-					<input class="agile-ltext" type="password" name="repassword" placeholder="确认密码" required="">
-					<div class="wthreelogin-text"> 
-						<ul> 
-							<li>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i> 
-									<span> 我同意服务条款 </span> 
-								</label> 
-							</li> 
-						</ul>
-						<div class="clearfix"> </div>
-					</div>   
-					<input type="submit" value="注册">
-				</form>
+				<s:form action="customer_signup" method="post"> 
+					<s:textfield class="agile-ltext" type="text" name="cname" placeholder="用户名" required=""/>
+					<s:textfield class="agile-ltext" type="email" name="email" placeholder="邮箱" required=""/>
+					<s:textfield class="agile-ltext" type="password" name="password" placeholder="密码" required=""/>
+					<s:textfield class="agile-ltext" type="password" name="repassword" placeholder="确认密码" required=""/>
+						
+					<s:submit value="注册"/>
+				</s:form>
 				<p>已有账户?  <a href="login.html"> 登录!</a></p> 
 			</div>	 
 		</div>

@@ -6,12 +6,13 @@
     <hibernate-mapping>
 	<class name="cn.takeout.customer.Customer" table="customer">	
 		<!-- 1.唯一标识 -->
-		<id name="cid" column="id">
+		<id name="cid" column="cid">
 			<generator class="native"/>
 		</id>
 		<!-- 2.普通属性 -->
 		<property name="cname"/>
 		<property name="email"/>
+		<property name="password"/>
 		<property name="state"/>
 		<property name="code"/>
 	</class>

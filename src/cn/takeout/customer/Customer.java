@@ -4,6 +4,7 @@ public class Customer {
 	private Integer cid;
 	private String cname;
 	private String email;
+	private String password;
 	private Integer state; //用户状态
 	private String code; // 激活码
 	
@@ -36,6 +37,12 @@ public class Customer {
 	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 }
