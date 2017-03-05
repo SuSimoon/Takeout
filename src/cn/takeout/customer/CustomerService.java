@@ -18,7 +18,6 @@ public class CustomerService {
 	}
 
 	public void signup(Customer customer) {
-		//验证邮箱是否已经注册过
 		
 		//保存用户
 		customer.setState(0); //未激活
@@ -47,6 +46,11 @@ public class CustomerService {
 	//激活成功后修改用户信息
 	public void update(Customer existCustomer) {
 		customerDao.update(existCustomer);
+	}
+	//用户登录
+	public Customer login(Customer customer) {
+		
+		return customerDao.login(customer);
 	}
 
 	

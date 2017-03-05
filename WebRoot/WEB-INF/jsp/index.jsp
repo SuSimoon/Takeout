@@ -38,7 +38,7 @@
 								<i class="fa fa-phone" aria-hidden="true"></i> Call us: +01 222 33345 
 							</li> 
 							<li class="head-dpdn">
-								<a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i> 登录</a>
+								<a href="${pageContext.request.contextPath}/customer_loginPage"><i class="fa fa-sign-in" aria-hidden="true"></i> 登录</a>
 							</li> 
 							<li class="head-dpdn">
 								<a href="${pageContext.request.contextPath}/customer_signupPage"><i class="fa fa-user-plus" aria-hidden="true"></i> 注册</a>

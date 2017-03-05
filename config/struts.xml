@@ -9,10 +9,16 @@
     <!-- filederror自定义样式 -->
     <package name="default" namespace="/" extends="struts-default"> 	
    		<action name="customer_*" class="customerAction" method="{1}">
+   			<!-- 注册功能 -->
    			<result name="index">/WEB-INF/jsp/index.jsp</result>
    			<result name="signupPage">/WEB-INF/jsp/signup.jsp</result>
  			<result name="signupSuccuess">/WEB-INF/jsp/signup_success.jsp</result>
  			<result name="input">/WEB-INF/jsp/signup.jsp</result>
+ 			<!-- 登录功能 -->
+ 			<result name="loginPage">/WEB-INF/jsp/login.jsp</result>
+ 			<result name="loginFail">/WEB-INF/jsp/login.jsp</result>
+ 			<result name="loginSuccess">/WEB-INF/jsp/login_success.jsp</result>
+ 			
    		</action>
     </package>
 

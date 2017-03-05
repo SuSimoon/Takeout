@@ -29,36 +29,6 @@
 <link href="http://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet"> 
 <link href="http://fonts.googleapis.com/css?family=Yantramanav:100,300,400,500,700,900" rel="stylesheet">
 
-<!-- <!-- 注册前台校验 -->
-<script type="text/javascript">
-	function checkForm() {
-		//用户名
-		var cname = document.getElement("cname").value;
-		if(cname == '' ) {
-			alert("用户名不能为空");
-			return false;
-		}
-		//邮箱
-		var email = document.getElement("email").value;
-		var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-		if(!myreg.test(email))  {
-             alert("邮箱格式错误");
-             return false;
-        }
-		//密码
-		var password = document.getElementById("password").value;
-		if(password == '' || password.length<6) {
-			alert("密码长度不能小于6位");
-			return false;
-		}
-		//确认密码
-		var repassword = document.getElementById("repassword").value;
-		if(password !== repassword) {
-			alert("两次密码输入不一致");
-			return false;
-		}
-	}
-</script> -->
 
 
 
@@ -77,10 +47,10 @@
 					<div class="w3ls-header-right">
 						<ul> 
 							<li class="head-dpdn">
-								<i class="fa fa-phone" aria-hidden="true"></i> Call us: +01 222 33345 
+								<i class="fa fa-phone" aria-hidden="true"></i> TEL: +01 222 33345 
 							</li> 
 							<li class="head-dpdn">
-								<a href="${pageContext.request.contextPath}/customer_login.action"><i class="fa fa-sign-in" aria-hidden="true"></i> 登录</a>
+								<a href="${pageContext.request.contextPath}/customer_loginPage.action"><i class="fa fa-sign-in" aria-hidden="true"></i> 登录</a>
 							</li> 
 							<li class="head-dpdn">
 								<a href="${pageContext.request.contextPath}/customer_signupPage"><i class="fa fa-user-plus" aria-hidden="true"></i> 注册</a>
@@ -196,10 +166,10 @@
 			<div class="login-agileinfo"> 
 				<s:form action="customer_signup" method="post"> 
 					<s:actionerror cssClass="actionerror"/>
-					<s:textfield class="agile-ltext" type="text" name="cname" placeholder="用户名" required=""/>
-					<s:textfield class="agile-ltext" type="email" name="email" placeholder="邮箱" required=""/>
-					<s:textfield class="agile-ltext" type="password" name="password" placeholder="密码" required=""/>
-					<s:textfield class="agile-ltext" type="password" name="repassword" placeholder="确认密码" required=""/>
+					<s:textfield class="agile-ltext" type="text" name="cname" placeholder="用户名" />
+					<s:textfield class="agile-ltext" type="email" name="email" placeholder="邮箱" />
+					<s:textfield class="agile-ltext" type="password" name="password" placeholder="密码" />
+					<s:textfield class="agile-ltext" type="password" name="repassword" placeholder="确认密码" />
 						
 					<s:submit value="注册"/>
 				</s:form>

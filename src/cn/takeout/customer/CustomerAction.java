@@ -1,5 +1,7 @@
 package cn.takeout.customer;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -36,7 +38,6 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 			this.addActionError("该邮箱已注册！");
 			return "input";
 		}
-		
 	}
 	//用户激活
 	public String active() {
@@ -55,7 +56,22 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 			return "signupSuccuess";
 		}
 	}
-	
-	
+	//跳转用户登录页面
+	public String loginPage() {
+		return "loginPage";
+	}
+	//用户登录
+	public String login() {
+		Customer existCustomer = customerService.login(customer);
+		if(existCustomer == null) {
+			//登录失败
+			this.addActionError("邮箱或密码错误，或用户未激活!");
+			return "loginFail";
+		} else {
+			ServletActionContext.getRequest().getSession().setAttribute("existCustomer", existCustomer);
+			return "loginSuccess";
+		}
+	}
+	 
 	
 }
