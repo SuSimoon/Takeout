@@ -5,8 +5,10 @@ public class Customer {
 	private String cname;
 	private String email;
 	private String password;
+	private String repassword;
 	private Integer state; //用户状态
 	private String code; // 激活码
+	
 	
 	public Integer getCid() {
 		return cid;
@@ -44,5 +46,12 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getRepassword() {
+		return repassword;
+	}
+	public void setRepassword(String repassword) {
+		this.repassword = repassword;
+	}
+	
 	
 }

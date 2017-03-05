@@ -3,12 +3,21 @@ package cn.takeout.customer;
 import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-
+ 
 public class CustomerDao extends HibernateDaoSupport {
 	//保存用户注册信息
 	public void save(Customer customer) {
 		this.getHibernateTemplate().save(customer);
 	}
+	//验证邮箱是否已经注册过
+	public Customer findByEmail(String email) {
+		List<Customer> list = this.getHibernateTemplate().find("from Customer where email = ?",email);
+		if(list.size()!=0){
+			return list.get(0);
+		}
+		return null;
+	}
+		
 	//根据激活码查找用户
 	public Customer findByCode(String code) {
 		List<Customer> list = this.getHibernateTemplate().find("from Customer where code = ?",code);
@@ -21,5 +30,6 @@ public class CustomerDao extends HibernateDaoSupport {
 	public void update(Customer existCustomer) {
 		this.getHibernateTemplate().update(existCustomer);
 	}
+	
 	
 }

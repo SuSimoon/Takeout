@@ -6,12 +6,13 @@
 <struts>
 	<!--提供详细报错页面，修改struts.xml后不需要重启服务器 -->
     <constant name="struts.devMode" value="true" />
-     
+    <!-- filederror自定义样式 -->
     <package name="default" namespace="/" extends="struts-default"> 	
    		<action name="customer_*" class="customerAction" method="{1}">
    			<result name="index">/WEB-INF/jsp/index.jsp</result>
    			<result name="signupPage">/WEB-INF/jsp/signup.jsp</result>
  			<result name="signupSuccuess">/WEB-INF/jsp/signup_success.jsp</result>
+ 			<result name="input">/WEB-INF/jsp/signup.jsp</result>
    		</action>
     </package>
 

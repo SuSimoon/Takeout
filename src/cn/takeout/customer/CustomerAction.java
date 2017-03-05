@@ -26,9 +26,17 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	}
 	//用户注册
 	public String signup() {
-		customerService.signup(customer);
-		this.addActionMessage("注册成功，请去邮箱激活！");
-		return "signupSuccuess";
+		//验证邮箱是否已经注册过
+		Customer existCustomer = customerService.findByEmail(customer.getEmail());
+		if(existCustomer == null){
+			customerService.signup(customer);
+			this.addActionMessage("注册成功，请去邮箱激活！");
+			return "signupSuccuess";
+		} else {
+			this.addActionError("该邮箱已注册！");
+			return "input";
+		}
+		
 	}
 	//用户激活
 	public String active() {

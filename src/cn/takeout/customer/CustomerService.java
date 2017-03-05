@@ -18,6 +18,8 @@ public class CustomerService {
 	}
 
 	public void signup(Customer customer) {
+		//验证邮箱是否已经注册过
+		
 		//保存用户
 		customer.setState(0); //未激活
 		String code = UUIDUtils.getUUID();
@@ -33,6 +35,11 @@ public class CustomerService {
 			e.printStackTrace();
 		}
 	}
+	//验证邮箱是否已经注册过
+	public Customer findByEmail(String email) {
+		return customerDao.findByEmail(email);
+	}
+
 	//用户激活
 	public Customer findByCode(String code) {
 		return customerDao.findByCode(code);
@@ -41,5 +48,7 @@ public class CustomerService {
 	public void update(Customer existCustomer) {
 		customerDao.update(existCustomer);
 	}
+
+	
 	
 }

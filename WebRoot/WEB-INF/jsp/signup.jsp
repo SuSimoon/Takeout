@@ -8,6 +8,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
+
+<style type="text/css">
+	.actionerror {
+	  color: red;
+}
+</style>
+
+
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
 <link href="${pageContext.request.contextPath}/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
@@ -72,7 +80,7 @@
 								<i class="fa fa-phone" aria-hidden="true"></i> Call us: +01 222 33345 
 							</li> 
 							<li class="head-dpdn">
-								<a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i> 登录</a>
+								<a href="${pageContext.request.contextPath}/customer_login.action"><i class="fa fa-sign-in" aria-hidden="true"></i> 登录</a>
 							</li> 
 							<li class="head-dpdn">
 								<a href="${pageContext.request.contextPath}/customer_signupPage"><i class="fa fa-user-plus" aria-hidden="true"></i> 注册</a>
@@ -187,6 +195,7 @@
 			<h3 class="w3ls-title w3ls-title1">注册账户</h3>  
 			<div class="login-agileinfo"> 
 				<s:form action="customer_signup" method="post"> 
+					<s:actionerror cssClass="actionerror"/>
 					<s:textfield class="agile-ltext" type="text" name="cname" placeholder="用户名" required=""/>
 					<s:textfield class="agile-ltext" type="email" name="email" placeholder="邮箱" required=""/>
 					<s:textfield class="agile-ltext" type="password" name="password" placeholder="密码" required=""/>
@@ -194,7 +203,7 @@
 						
 					<s:submit value="注册"/>
 				</s:form>
-				<p>已有账户?  <a href="login.html"> 登录!</a></p> 
+				<p>已有账户?  <a href="${pageContext.request.contextPath}/customer_login.action"> 登录!</a></p> 
 			</div>	 
 		</div>
 	</div>
