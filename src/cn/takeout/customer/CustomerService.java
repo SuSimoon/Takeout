@@ -49,8 +49,18 @@ public class CustomerService {
 	}
 	//用户登录
 	public Customer login(Customer customer) {
-		
 		return customerDao.login(customer);
+	}
+	//修改密码
+	public void getBackPwd(String email) {
+		//发送邮件
+		try {
+			MailUtils.sendPwdMail(email);
+		} catch (AddressException e) {
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
 	}
 
 	
