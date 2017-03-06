@@ -52,7 +52,7 @@ public class MailUtils {
 		Transport.send(message);
 	}
 	
-	public static void sendPwdMail(String to) throws AddressException, MessagingException {
+	public static void sendPwdMail(String to, String code) throws AddressException, MessagingException {
 		initMail();
 		// 2.创建一个Message，它相当于是邮件内容
 		Message message = new MimeMessage(initMail());
@@ -63,7 +63,7 @@ public class MailUtils {
 
 		message.setSubject("来自Takeout密码找回邮件");
 		
-		message.setContent("<h1>点击链接重置密码</h1><h3><a href='http://10.103.14.81:8080/Takeout/customer_updatePwdPage.action?email="+to+"'>http://10.103.14.81:8080/Takeout/customer_updatePwd.action?email="+to+"</a></h3>", "text/html;charset=UTF-8"); 
+		message.setContent("<h1>点击链接重置密码</h1><h3><a href='http://10.103.14.81:8080/Takeout/customer_updatePwdPage.action?email="+to+"&&code="+code+"'>http://10.103.14.81:8080/Takeout/customer_updatePwd.action?email="+to+"&&code="+code+"</a></h3>", "text/html;charset=UTF-8"); 
 		// 3.创建 Transport用于将邮件发送
 
 		Transport.send(message);

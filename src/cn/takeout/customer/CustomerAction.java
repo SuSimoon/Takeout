@@ -1,11 +1,21 @@
 package cn.takeout.customer;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts2.ServletActionContext;
+
+import cn.takeout.utils.CookieUtils;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 public class CustomerAction extends ActionSupport implements ModelDriven<Customer>{
+	private boolean autoLogin;
+	private HttpServletResponse response;
+	public void setAutoLogin(boolean autoLogin) {
+		this.autoLogin = autoLogin;
+	}
 	//注入ActionService
 	private CustomerService customerService;
 
@@ -62,6 +72,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	}
 	//用户登录
 	public String login() {
+		
 		Customer existCustomer = customerService.login(customer);
 		if(existCustomer == null) {
 			//登录失败
@@ -69,7 +80,12 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 			return "loginFail";
 		} else {
 			ServletActionContext.getRequest().getSession().setAttribute("existCustomer", existCustomer);
-			return "loginSuccess";
+//			// 判断是否要添加到cookie中  
+//            if (autoLogin) {  
+//                Cookie cookie = CookieUtils.addCookie(existCustomer);  
+//                response.addCookie(cookie);// 添加cookie到response中  
+//            }  
+			return "index";
 		}
 	}
 	//跳转找回密码页面
@@ -94,13 +110,21 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	
 	//邮箱跳转重置密码页面
 	public String updatePwdPage() {
-		return "updatePwdPage";
+		// 根据邮箱查询到这个用户
+	    Customer existCustomer = customerService.findByEmail(customer.getEmail());
+	    if(existCustomer != null){
+	    	//验证code是否正确
+	    	if(customer.getCode().equals(existCustomer.getCode())) {
+	    		return "updatePwdPage";
+	    	}
+	    }
+	    this.addActionMessage("密码修改链接失败!");
+		return "MessagePage";
 	}
 	//重置密码
 	public String updatePwd() {
 		// 根据邮箱查询到这个用户
 		Customer existCustomer = customerService.findByEmail(customer.getEmail());
-		System.out.println(customer.getEmail());
 		if(existCustomer != null){
 			existCustomer.setPassword(customer.getPassword());
 			// 修改用户的状态
@@ -113,6 +137,12 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 			return "MessagePage";
 		}
 	}
+	//用户退出
+	public String logout() {
+		ServletActionContext.getRequest().getSession().invalidate();
+		return "index";
+	}
+
 	
 	
 	

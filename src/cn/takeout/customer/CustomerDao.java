@@ -3,6 +3,8 @@ package cn.takeout.customer;
 import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import cn.takeout.utils.MD5Utils;
  
 public class CustomerDao extends HibernateDaoSupport {
 	//保存用户注册信息
@@ -35,7 +37,7 @@ public class CustomerDao extends HibernateDaoSupport {
 	public Customer login(Customer customer) {
 		List<Customer> list = this.getHibernateTemplate().
 				find("from Customer where email=? and password=? and state=?",
-						customer.getEmail(),customer.getPassword(),1);
+						customer.getEmail(),MD5Utils.md5(customer.getPassword()),1);
 		if(list.size()!=0) {
 			return list.get(0);
 		}

@@ -53,9 +53,10 @@ public class CustomerService {
 	}
 	//修改密码
 	public void getBackPwd(String email) {
+		Customer c = customerDao.findByEmail(email);
 		//发送邮件
 		try {
-			MailUtils.sendPwdMail(email);
+			MailUtils.sendPwdMail(email,c.getCode());
 		} catch (AddressException e) {
 			e.printStackTrace();
 		} catch (MessagingException e) {

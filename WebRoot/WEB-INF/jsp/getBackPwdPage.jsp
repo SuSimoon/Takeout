@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>信息页面</title>
+<title>密码找回</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -23,24 +23,33 @@
 <!-- //web-fonts -->
 </head>
 <body> 
-	<jsp:include page="banner.jsp"/> 
-	<!-- //banner -->    
+	<!-- banner -->
+	<jsp:include page="banner.jsp"/>  
 	<!-- breadcrumb -->  
 	<div class="container">	
 		<ol class="breadcrumb w3l-crumbs">
-			<li><a href="#"><i class="fa fa-home"></i> Home</a></li> 
-			<li class="active">signup success</li>
+			<li><a href="${pageContext.request.contextPath}/customer_index"><i class="fa fa-home"></i> 首页</a></li> 
+			<li class="active">注册</li>
 		</ol>
 	</div>
 	<!-- //breadcrumb -->
-	<!-- careers-page -->
-	<div class="careers about">
+	
+	
+	<!-- login-page -->
+	<div class="login-page about">
+		<img class="login-w3img" src="images/img3.jpg" alt="">
 		<div class="container"> 
-			<h3 class="w3ls-title w3ls-title1"><s:actionmessage/></h3> 
-			
+			<h3 class="w3ls-title w3ls-title1">密码找回</h3>  
+			<div class="login-agileinfo"> 
+				<s:form action="customer_getBackPwd" method="post"> 
+				<span>请填写您需要找回的邮箱帐号</span>
+					<s:actionmessage/>
+					<s:textfield class="agile-ltext" type="text" name="email" placeholder="邮箱"/>
+					<s:submit value="重置密码"/>
+				</s:form>
+			</div>
 		</div>
-	</div>
-	<!-- //careers-page -->  
+	 </div>
 	<!-- subscribe -->
 	<div class="subscribe agileits-w3layouts"> 
 		<div class="container">
@@ -66,7 +75,7 @@
 					<input type="email" name="email" placeholder="Enter your Email..." required="">
 					<input type="submit" value="Subscribe">
 					<div class="clearfix"> </div> 
-				</form> 
+				</form>  
 				<img src="images/i1.png" class="sub-w3lsimg" alt=""/>
 			</div>
 			<div class="clearfix"> </div> 
@@ -101,7 +110,7 @@
 						<li><a href="terms.html">Terms & Conditions</a></li>  
 						<li><a href="privacy.html">Privacy Policy</a></li>
 						<li><a href="login.html">Return Policy</a></li> 
-					</ul>     
+					</ul>      
 				</div>
 				<div class="col-xs-6 col-sm-3 footer-grids w3-agileits">
 					<h3>Menu</h3> 
