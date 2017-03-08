@@ -41,9 +41,10 @@ public class CookieUtils {
     public static void delCookie(HttpServletRequest request) {  
     	Cookie [] cs = ServletActionContext.getRequest().getCookies();
     	Cookie cookieE = new Cookie("email",null);
-    	System.out.println(cookieE.getValue());
-    	cookieE.setMaxAge(0);
+    	cookieE.setMaxAge(-1);
     	Cookie cookieP = new Cookie("password",null);
-    	cookieP.setMaxAge(0);
+    	cookieP.setMaxAge(-1);
+    	ServletActionContext.getResponse().addCookie(cookieP);
+    	ServletActionContext.getResponse().addCookie(cookieE);
     }  
 }
