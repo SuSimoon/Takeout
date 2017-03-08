@@ -5,10 +5,11 @@ import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.struts2.ServletActionContext;
+
 import cn.takeout.customer.Customer;
 
 public class CookieUtils {
-	 public static final String CUSTOMER_COOKIE = "customer.cookie";
 	// 添加一个cookie  
     public static List<Cookie> addCookie(Customer customer) {  
         Cookie cookieE = new Cookie("email", customer.getEmail());  
@@ -37,17 +38,12 @@ public class CookieUtils {
 	}
 	
 	// 删除cookie  
-    public static Cookie delCookie(HttpServletRequest request) {  
-        Cookie[] cookies = request.getCookies();  
-        if (cookies != null) {  
-            for (Cookie cookie : cookies) {  
-                if (CUSTOMER_COOKIE.equals(cookie.getName())) {  
-                    cookie.setValue("");  
-                    cookie.setMaxAge(0);  
-                    return cookie;  
-                }  
-            }  
-        }  
-        return null;  
+    public static void delCookie(HttpServletRequest request) {  
+    	Cookie [] cs = ServletActionContext.getRequest().getCookies();
+    	Cookie cookieE = new Cookie("email",null);
+    	System.out.println(cookieE.getValue());
+    	cookieE.setMaxAge(0);
+    	Cookie cookieP = new Cookie("password",null);
+    	cookieP.setMaxAge(0);
     }  
 }

@@ -28,13 +28,13 @@ public class AutoLoginIntercepter extends MethodFilterInterceptor {
 	protected String doIntercept(ActionInvocation ai) throws Exception {
 		 Cookie [] cs = ServletActionContext.getRequest().getCookies();
 		 Cookie cookieE = CookieUtils.findCookieByName(cs, "email");
+		 //System.out.println(cookieE.getValue());
 		 Cookie cookieP = CookieUtils.findCookieByName(cs, "password");
 		 if(cookieE!=null && cookieP!=null) {
 			 Customer c = new Customer();
 			 c.setEmail(cookieE.getValue());
 			 c.setPassword(cookieP.getValue());
 			 Customer existCustomer = customerDao.checkAutoLogin(c);
-			 System.out.println(existCustomer);
 			 if(existCustomer != null) {
 				 ServletActionContext.getRequest().getSession().setAttribute("existCustomer", existCustomer);
 				 return "index";

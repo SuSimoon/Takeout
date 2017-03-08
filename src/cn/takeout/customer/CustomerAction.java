@@ -6,6 +6,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.connector.Request;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletResponseAware;
 
@@ -147,7 +148,9 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	}
 	//用户退出
 	public String logout() {
-		ServletActionContext.getRequest().getSession().invalidate();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.getSession().invalidate();
+		CookieUtils.delCookie(request);
 		return "index";
 	}
 	
