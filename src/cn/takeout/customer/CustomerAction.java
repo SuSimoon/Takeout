@@ -1,18 +1,25 @@
 package cn.takeout.customer;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.ServletResponseAware;
 
 import cn.takeout.utils.CookieUtils;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class CustomerAction extends ActionSupport implements ModelDriven<Customer>{
-	private boolean autoLogin;
-	private HttpServletResponse response;
+public class CustomerAction extends ActionSupport implements ModelDriven<Customer> {
+	private boolean autoLogin;  
+	
+	public boolean isAutoLogin() {
+		return autoLogin;
+	}
 	public void setAutoLogin(boolean autoLogin) {
 		this.autoLogin = autoLogin;
 	}
@@ -72,19 +79,20 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	}
 	//用户登录
 	public String login() {
-		
 		Customer existCustomer = customerService.login(customer);
 		if(existCustomer == null) {
 			//登录失败
 			this.addActionError("邮箱或密码错误，或用户未激活!");
 			return "loginFail";
 		} else {
-			ServletActionContext.getRequest().getSession().setAttribute("existCustomer", existCustomer);
-//			// 判断是否要添加到cookie中  
-//            if (autoLogin) {  
-//                Cookie cookie = CookieUtils.addCookie(existCustomer);  
-//                response.addCookie(cookie);// 添加cookie到response中  
-//            }  
+			// 判断是否要添加到cookie中 
+            if (autoLogin) {  
+            	List<Cookie> cookieList = CookieUtils.addCookie(existCustomer);  
+            	for (Cookie cookie : cookieList) {  
+            		ServletActionContext.getResponse().addCookie(cookie);  
+                } 
+            }  
+            ServletActionContext.getRequest().getSession().setAttribute("existCustomer", existCustomer);
 			return "index";
 		}
 	}
@@ -142,6 +150,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		ServletActionContext.getRequest().getSession().invalidate();
 		return "index";
 	}
+	
 
 	
 	

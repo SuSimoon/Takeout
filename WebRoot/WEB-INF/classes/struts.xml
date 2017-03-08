@@ -8,10 +8,15 @@
     <constant name="struts.devMode" value="true" />
     
     <package name="default" namespace="/" extends="struts-default"> 	
+    <!-- 配置拦截器 -->
+    <interceptors>
+        <interceptor name="autoLoginIntercepter" class="cn.takeout.intercepter.AutoLoginIntercepter"></interceptor>
+    </interceptors>
     <!-- 全局结果页面 -->
     <global-results>
     	<result name="MessagePage">WEB-INF/jsp/messagePage.jsp</result>
     </global-results>
+    
    		<action name="customer_*" class="customerAction" method="{1}">
    			<!-- 注册功能 -->
    			<result name="index">/WEB-INF/jsp/index.jsp</result>
@@ -24,6 +29,10 @@
  			<!-- 跳转密码找回页面 -->
  			<result name="getBackPwdPage">/WEB-INF/jsp/getBackPwdPage.jsp</result>
  			<result name="updatePwdPage">/WEB-INF/jsp/updatePwdPage.jsp</result>
+ 			<interceptor-ref name="autoLoginIntercepter">
+ 				<param name="includeMethods">loginPage</param>
+ 			</interceptor-ref>
+        	<interceptor-ref name="defaultStack"/>
    		</action>
    		<!-- 密码找回 -->
    		<action name="customer_updatePwd" class="customerAction" method="updatePwd">

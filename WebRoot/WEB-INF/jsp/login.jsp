@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ page import="cn.takeout.utils.CookieUtils" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<%
+Cookie [] cookies = request.getCookies();
+Cookie value = CookieUtils.findCookieByName(cookies,"email");
+ %>
+
 <head>
 <title>Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,24 +45,26 @@
 		<div class="container"> 
 			<h3 class="w3ls-title w3ls-title1">用户登录</h3>  
 			<div class="login-agileinfo"> 
+			
 				<s:form action="customer_login" method="post"> 
 				<s:actionerror cssClass="actionerror"/>
-					<s:textfield class="agile-ltext" type="text" name="email" placeholder="邮箱" required=""/>
+					<s:textfield class="agile-ltext" type="text" name="email"  placeholder="邮箱" required=""/>
 					<s:textfield class="agile-ltext" type="password" name="password" placeholder="密码" required=""/>
-					   
+					
 					<s:submit value="登录"/>
-				</s:form>
+				
 				<div class="wthreelogin-text"> 
 						<ul> 
 							<li>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i> 
-									<span> 下次自动登录</span> 
-								</label> 
+								<s:checkbox name="autoLogin" label="记住我"/>
 							</li>
-							<li><a href="${pageContext.request.contextPath}/customer_getBackPwdPage">忘记密码?</a> </li>
+							<li>
+								<a href="${pageContext.request.contextPath}/customer_getBackPwdPage">忘记密码?</a> 
+							</li>
 						</ul>
 						<div class="clearfix"> </div>
 					</div>
+				</s:form>
 				<p>未注册用户? <a href="${pageContext.request.contextPath}/customer_signupPage"> 立即注册!</a></p> 
 			</div>	 
 		</div>

@@ -75,4 +75,7 @@
 		<!-- sessionFactory可以自动注入模板 -->
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
+	<bean id="autoLoginIntercepter" class="cn.takeout.intercepter.AutoLoginIntercepter">
+		<property name="customerDao" ref="customerDao"/>
+	</bean>
 </beans>

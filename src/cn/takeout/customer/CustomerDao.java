@@ -2,6 +2,7 @@ package cn.takeout.customer;
 
 import java.util.List;
 
+import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import cn.takeout.utils.MD5Utils;
@@ -33,7 +34,7 @@ public class CustomerDao extends HibernateDaoSupport {
 	public void update(Customer existCustomer) {
 		this.getHibernateTemplate().update(existCustomer);
 	}
-	//
+	//登录
 	public Customer login(Customer customer) {
 		List<Customer> list = this.getHibernateTemplate().
 				find("from Customer where email=? and password=? and state=?",
@@ -44,7 +45,16 @@ public class CustomerDao extends HibernateDaoSupport {
 		return null;
 	}
 	
-	
+	//
+	public Customer checkAutoLogin(Customer customer) {
+		List<Customer> list = this.getHibernateTemplate().
+				find("from Customer where email=? and password=?",
+						customer.getEmail(),customer.getPassword());
+		if(list.size()!=0) {
+			return list.get(0);
+		}
+		return null;
+	}
 	
 	
 	
