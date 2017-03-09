@@ -38,6 +38,13 @@
    		<action name="customer_updatePwd" class="customerAction" method="updatePwd">
  			<result name="input">/WEB-INF/jsp/updatePwdPage.jsp</result>
    		</action>
+   		
+   		
+   		<!-- MenuAction -->
+   		<action name="menu_*" class="menuAction" method="{1}">
+   			<result name="indexMenu">/WEB-INF/jsp/menu.jsp</result>
+   		</action>
+   		
     </package>
 
 

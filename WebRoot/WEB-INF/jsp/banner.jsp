@@ -70,40 +70,35 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>  
-							<h1><a href="index.html">Staple<span>Best Food Collection</span></a></h1>
+							<h1><a href="${pageContext.request.contextPath}/customer_index">美时订餐</a></h1>
 						</div> 
 						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 							<ul class="nav navbar-nav navbar-right">
-								<li><a href="index.html">Home</a></li>	
+								<li><a href="${pageContext.request.contextPath}/customer_index">首页</a></li>	
 								<!-- Mega Menu -->
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">订餐<b class="caret"></b></a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<div class="row">
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<h6>Food type</h6>  
-													<li><a href="menu.html">Breakfast</a></li> 
-													<li><a href="menu.html">Lunch</a></li> 
-													<li><a href="menu.html">Dinner</a></li> 
+													<h6>分类</h6>  
+													<li><a href="${pageContext.request.contextPath}/menu_index.action">主食</a></li> 
+													<li><a href="${pageContext.request.contextPath}/menu_index.action">甜品</a></li> 
+													<li><a href="${pageContext.request.contextPath}/menu_index.action">饮品</a></li> 
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<h6>Cuisine</h6> 
-													<li><a href="menu.html">Indian Recipes</a></li> 
-													<li><a href="menu.html">American Recipes</a></li> 
-													<li><a href="menu.html">French Recipes</a></li> 
-													<li><a href="menu.html">Italian Recipes</a></li> 
+													<h6>优惠</h6> 
+													<li><a href="menu.html">超值套餐</a></li> 
+													<li><a href="menu.html">限时折扣</a></li> 
 												</ul>
 											</div>
 											<div class="col-sm-4">
 												<ul class="multi-column-dropdown">
-													<h6>Box type</h6> 
-													<li><a href="menu.html">Diet</a></li> 
-													<li><a href="menu.html">Mini</a></li> 
-													<li><a href="menu.html">Regular</a></li> 
-													<li><a href="menu.html">Special</a></li> 
+													<h6>热销</h6> 
+													<li><a href="menu.html">美食排行</a></li> 
 												</ul>
 											</div> 
 											<div class="clearfix"></div>
@@ -136,7 +131,7 @@
 		<!-- banner-text -->
 		<div class="banner-text">	
 			<div class="container">
-				<h2>Delicious food from the <br> <span>Best Chefs For you.</span></h2> 
+				<h2>美食相伴每刻 <br> <span>Best Chefs For you.</span></h2> 
 			</div>
 		</div>
 	</div>

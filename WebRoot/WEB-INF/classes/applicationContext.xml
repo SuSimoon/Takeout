@@ -42,6 +42,7 @@
 	<property name="mappingResources">
 		<list>
 			<value>cn/takeout/customer/Customer.hbm.xml</value>
+			<value>cn/takeout/menu/Menu.hbm.xml</value>
 		</list>
 	</property>
 
@@ -64,10 +65,16 @@
 	<bean id="customerAction" class="cn.takeout.customer.CustomerAction" scope="prototype">
 		<property name="customerService" ref="customerService"></property>
 	</bean>
+	<bean id="menuAction" class="cn.takeout.menu.MenuAction" scope="prototype">
+		<property name="menuService" ref="menuService"></property>
+	</bean>
 	
 	<!-- 配置Service -->
 	<bean id="customerService" class="cn.takeout.customer.CustomerService">
 		<property name="customerDao" ref="customerDao"></property>
+	</bean>
+	<bean id="menuService" class="cn.takeout.menu.MenuService">
+		<property name="menuDao" ref="menuDao"></property>
 	</bean>
 	
 	<!-- 配置Dao -->
@@ -75,6 +82,12 @@
 		<!-- sessionFactory可以自动注入模板 -->
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
+	<bean id="menuDao" class="cn.takeout.menu.MenuDao">
+		<!-- sessionFactory可以自动注入模板 -->
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 配置拦截器 -->
 	<bean id="autoLoginIntercepter" class="cn.takeout.intercepter.AutoLoginIntercepter">
 		<property name="customerDao" ref="customerDao"/>
 	</bean>

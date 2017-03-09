@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+	<class name="cn.takeout.menu.Menu" table="menu">	
+		<!-- 1.唯一标识 -->
+		<id name="mid" column="mid">
+			<generator class="native"/>
+		</id>
+		<!-- 2.普通属性 -->
+		<property name="mname"/>
+	</class>
+</hibernate-mapping>
