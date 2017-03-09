@@ -3,6 +3,7 @@ package cn.takeout.menu;
 public class Menu {
 	private Integer mid;
 	private String mname;
+	private Integer tid;
 	public Integer getMid() {
 		return mid;
 	}
@@ -15,5 +16,12 @@ public class Menu {
 	public void setMname(String mname) {
 		this.mname = mname;
 	}
+	public Integer getTid() {
+		return tid;
+	}
+	public void setTid(Integer tid) {
+		this.tid = tid;
+	}
+	
 	
 }

@@ -3,6 +3,8 @@ package cn.takeout.customer;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.takeout.utils.MD5Utils;
@@ -11,11 +13,9 @@ import cn.takeout.utils.UUIDUtils;
 
 @Transactional
 public class CustomerService {
+	@Autowired
+	@Qualifier("customerDao")
 	private CustomerDao customerDao;
-
-	public void setCustomerDao(CustomerDao customerDao) {
-		this.customerDao = customerDao;
-	}
 
 	public void signup(Customer customer) {
 		

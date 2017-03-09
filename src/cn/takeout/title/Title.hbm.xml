@@ -4,16 +4,13 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
     
     <hibernate-mapping>
-	<class name="cn.takeout.customer.Customer" table="customer">	
+	<class name="cn.takeout.title.Title" table="title">	
 		<!-- 1.唯一标识 -->
-		<id name="cid" column="cid">
+		<id name="tid" column="tid">
 			<generator class="native"/>
 		</id>
 		<!-- 2.普通属性 -->
-		<property name="cname"/>
-		<property name="email"/>
-		<property name="password"/>
-		<property name="state"/>
-		<property name="code"/>
+		<property name="tname"/>
+		
 	</class>
 </hibernate-mapping>

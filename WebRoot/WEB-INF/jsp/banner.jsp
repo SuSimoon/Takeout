@@ -77,30 +77,22 @@
 								<li><a href="${pageContext.request.contextPath}/customer_index">首页</a></li>	
 								<!-- Mega Menu -->
 								<li class="dropdown">
+								
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">订餐<b class="caret"></b></a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<div class="row">
-											<div class="col-sm-4">
-												<ul class="multi-column-dropdown">
-													<h6>分类</h6>  
-													<li><a href="${pageContext.request.contextPath}/menu_index.action">主食</a></li> 
-													<li><a href="${pageContext.request.contextPath}/menu_index.action">甜品</a></li> 
-													<li><a href="${pageContext.request.contextPath}/menu_index.action">饮品</a></li> 
-												</ul>
-											</div>
-											<div class="col-sm-4">
-												<ul class="multi-column-dropdown">
-													<h6>优惠</h6> 
-													<li><a href="menu.html">超值套餐</a></li> 
-													<li><a href="menu.html">限时折扣</a></li> 
-												</ul>
-											</div>
-											<div class="col-sm-4">
-												<ul class="multi-column-dropdown">
-													<h6>热销</h6> 
-													<li><a href="menu.html">美食排行</a></li> 
-												</ul>
-											</div> 
+										
+											<s:iterator value="#session.tList" var="t">
+												<div class="col-sm-4">
+													<ul class="multi-column-dropdown">
+														<h6><s:property value="#t.tname"/></h6>  
+															<s:iterator>
+															<li><a href="${pageContext.request.contextPath}/menu_page"></a></li> 
+															</s:iterator>
+													</ul>
+												</div>
+											</s:iterator>
+										
 											<div class="clearfix"></div>
 										</div>
 									</ul>

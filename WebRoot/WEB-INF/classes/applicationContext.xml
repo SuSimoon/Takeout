@@ -13,6 +13,8 @@
 	http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
+	<!-- 注解 -->
+	<context:component-scan base-package="cn.takeout"/>
 	<!-- 引入外部属性文件 -->
 	<context:property-placeholder location="classpath:db.properties"/>
 	<!-- 配置c3p0连接池 -->
@@ -43,6 +45,7 @@
 		<list>
 			<value>cn/takeout/customer/Customer.hbm.xml</value>
 			<value>cn/takeout/menu/Menu.hbm.xml</value>
+			<value>cn/takeout/title/Title.hbm.xml</value>
 		</list>
 	</property>
 
@@ -62,33 +65,27 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<!-- 配置Action -->
-	<bean id="customerAction" class="cn.takeout.customer.CustomerAction" scope="prototype">
-		<property name="customerService" ref="customerService"></property>
-	</bean>
-	<bean id="menuAction" class="cn.takeout.menu.MenuAction" scope="prototype">
-		<property name="menuService" ref="menuService"></property>
-	</bean>
+	<bean id="customerAction" class="cn.takeout.customer.CustomerAction" scope="prototype"/>
+	<bean id="menuAction" class="cn.takeout.menu.MenuAction" scope="prototype"/>
+	<bean id="indexAction" class="cn.takeout.index.IndexAction" scope="prototype"/>
 	
 	<!-- 配置Service -->
-	<bean id="customerService" class="cn.takeout.customer.CustomerService">
-		<property name="customerDao" ref="customerDao"></property>
-	</bean>
-	<bean id="menuService" class="cn.takeout.menu.MenuService">
-		<property name="menuDao" ref="menuDao"></property>
-	</bean>
+	<bean id="customerService" class="cn.takeout.customer.CustomerService"/>
+	<bean id="titleService" class="cn.takeout.title.TitleService"/>
+	<bean id="menuService" class="cn.takeout.menu.MenuService"/>
 	
 	<!-- 配置Dao -->
 	<bean id="customerDao" class="cn.takeout.customer.CustomerDao">
 		<!-- sessionFactory可以自动注入模板 -->
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
+	<bean id="titleDao" class="cn.takeout.title.TitleDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
 	<bean id="menuDao" class="cn.takeout.menu.MenuDao">
-		<!-- sessionFactory可以自动注入模板 -->
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
 	<!-- 配置拦截器 -->
-	<bean id="autoLoginIntercepter" class="cn.takeout.intercepter.AutoLoginIntercepter">
-		<property name="customerDao" ref="customerDao"/>
-	</bean>
+	<bean id="autoLoginIntercepter" class="cn.takeout.intercepter.AutoLoginIntercepter"/>
 </beans>

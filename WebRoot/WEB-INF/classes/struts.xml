@@ -18,8 +18,8 @@
     </global-results>
     
    		<action name="customer_*" class="customerAction" method="{1}">
-   			<!-- 注册功能 -->
    			<result name="index">/WEB-INF/jsp/index.jsp</result>
+   			<!-- 注册功能 -->
    			<result name="signupPage">/WEB-INF/jsp/signup.jsp</result>
  			<result name="input">/WEB-INF/jsp/signup.jsp</result>
  			<!-- 登录功能 -->
@@ -39,11 +39,12 @@
  			<result name="input">/WEB-INF/jsp/updatePwdPage.jsp</result>
    		</action>
    		
-   		
-   		<!-- MenuAction -->
-   		<action name="menu_*" class="menuAction" method="{1}">
-   			<result name="indexMenu">/WEB-INF/jsp/menu.jsp</result>
+   		<!-- IndexAction -->
+   		<action name="index" class="indexAction" method="index">
+   			<result name="indexSuccess">/WEB-INF/jsp/index.jsp</result>
    		</action>
+   		
+   		
    		
     </package>
 

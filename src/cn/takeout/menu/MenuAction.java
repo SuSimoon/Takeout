@@ -1,16 +1,18 @@
 package cn.takeout.menu;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class MenuAction extends ActionSupport {
+	@Autowired
+	@Qualifier("menuService")
 	private MenuService menuService;
 
-	public void setMenuService(MenuService menuService) {
-		this.menuService = menuService;
-	}
-	//显示菜单
-	public String index() {
-		return "indexMenu";
-	}
+	
 	
 }

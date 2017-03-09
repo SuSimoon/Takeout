@@ -13,7 +13,6 @@
 		<property name="cname"/>
 		<property name="email"/>
 		<property name="password"/>
-		<property name="repassword"/>
 		<property name="state"/>
 		<property name="code"/>
 	</class>

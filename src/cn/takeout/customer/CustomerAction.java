@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.catalina.connector.Request;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletResponseAware;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import cn.takeout.utils.CookieUtils;
 
@@ -17,6 +19,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 public class CustomerAction extends ActionSupport implements ModelDriven<Customer> {
 	private boolean autoLogin;  
+	private String repassword;
 	
 	public boolean isAutoLogin() {
 		return autoLogin;
@@ -24,22 +27,25 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	public void setAutoLogin(boolean autoLogin) {
 		this.autoLogin = autoLogin;
 	}
-	//注入ActionService
+	
+	public String getRepassword() {
+		return repassword;
+	}
+	public void setRepassword(String repassword) {
+		this.repassword = repassword;
+	}
+
+	@Autowired
+	@Qualifier("customerService")
 	private CustomerService customerService;
 
-	public void setCustomerService(CustomerService customerService) {
-		this.customerService = customerService;
-	}
 	//参数获取设置
 	private Customer customer = new Customer();
 	@Override
 	public Customer getModel() {
 		return customer;
 	}
-	//网站首页展示
-	public String index() {
-		return "index";
-	}
+	
 	//跳转注册页面
 	public String signupPage() {
 		return "signupPage";
