@@ -7,6 +7,7 @@ public class Food {
 	private String fname;
 	private double price;
 	private String image;
+	private String desc;
 	private Menu menu;
 	
 	public Integer getFid() {
@@ -32,6 +33,13 @@ public class Food {
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+	
+	public String getDesc() {
+		return desc;
+	}
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 	public Menu getMenu() {
 		return menu;
