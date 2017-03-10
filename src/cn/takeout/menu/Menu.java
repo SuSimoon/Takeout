@@ -1,9 +1,12 @@
 package cn.takeout.menu;
 
+import cn.takeout.title.Title;
+
 public class Menu {
 	private Integer mid;
 	private String mname;
-	private Integer tid;
+	private Title title;
+	
 	public Integer getMid() {
 		return mid;
 	}
@@ -16,12 +19,10 @@ public class Menu {
 	public void setMname(String mname) {
 		this.mname = mname;
 	}
-	public Integer getTid() {
-		return tid;
+	public Title getTitle() {
+		return title;
 	}
-	public void setTid(Integer tid) {
-		this.tid = tid;
+	public void setTitle(Title title) {
+		this.title = title;
 	}
-	
-	
 }

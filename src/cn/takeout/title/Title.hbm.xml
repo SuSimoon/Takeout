@@ -4,13 +4,17 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
     
     <hibernate-mapping>
-	<class name="cn.takeout.title.Title" table="title">	
+	<class name="cn.takeout.title.Title" table="title" >	
 		<!-- 1.唯一标识 -->
 		<id name="tid" column="tid">
 			<generator class="native"/>
 		</id>
 		<!-- 2.普通属性 -->
 		<property name="tname"/>
-		
+		<!-- 3.一对多配置 -->
+		<set name="menus" lazy="false">
+			<key column="tid"/>
+			<one-to-many class="cn.takeout.menu.Menu"/>
+		</set>
 	</class>
 </hibernate-mapping>

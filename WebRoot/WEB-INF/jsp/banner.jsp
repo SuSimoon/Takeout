@@ -74,20 +74,19 @@
 						</div> 
 						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 							<ul class="nav navbar-nav navbar-right">
-								<li><a href="${pageContext.request.contextPath}/customer_index">首页</a></li>	
+								<li><a href="${pageContext.request.contextPath}/index">首页</a></li>	
 								<!-- Mega Menu -->
 								<li class="dropdown">
 								
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">订餐<b class="caret"></b></a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<div class="row">
-										
 											<s:iterator value="#session.tList" var="t">
 												<div class="col-sm-4">
 													<ul class="multi-column-dropdown">
 														<h6><s:property value="#t.tname"/></h6>  
-															<s:iterator>
-															<li><a href="${pageContext.request.contextPath}/menu_page"></a></li> 
+															<s:iterator value="menus" var="m">
+																<li><a href="${pageContext.request.contextPath}/menu_findByMid.action?mid=<s:property value="#m.mid"/>"><s:property value="#m.mname"/></a></li> 
 															</s:iterator>
 													</ul>
 												</div>

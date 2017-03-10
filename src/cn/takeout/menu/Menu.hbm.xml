@@ -11,5 +11,7 @@
 		</id>
 		<!-- 2.普通属性 -->
 		<property name="mname"/>
+		<!-- 多对一配置 -->
+		<many-to-one name="title" class="cn.takeout.title.Title" column="tid"/>
 	</class>
 </hibernate-mapping>

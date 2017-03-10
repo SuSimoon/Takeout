@@ -12,7 +12,14 @@ public class MenuAction extends ActionSupport {
 	@Autowired
 	@Qualifier("menuService")
 	private MenuService menuService;
-
-	
+	//接收mid
+	private Integer mid;
+	public void setMid(Integer mid) {
+		this.mid = mid;
+	}
+	//按mid查询menu
+	public String findByMid() {
+		return "";
+	}
 	
 }

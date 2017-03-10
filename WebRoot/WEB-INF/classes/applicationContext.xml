@@ -66,8 +66,8 @@
 	
 	<!-- 配置Action -->
 	<bean id="customerAction" class="cn.takeout.customer.CustomerAction" scope="prototype"/>
-	<bean id="menuAction" class="cn.takeout.menu.MenuAction" scope="prototype"/>
 	<bean id="indexAction" class="cn.takeout.index.IndexAction" scope="prototype"/>
+	<bean id="menuAction" class="cn.takeout.menu.MenuAction" scope="prototype"/>
 	
 	<!-- 配置Service -->
 	<bean id="customerService" class="cn.takeout.customer.CustomerService"/>
