@@ -46,6 +46,7 @@
 			<value>cn/takeout/customer/Customer.hbm.xml</value>
 			<value>cn/takeout/menu/Menu.hbm.xml</value>
 			<value>cn/takeout/title/Title.hbm.xml</value>
+			<value>/cn/takeout/food/Food.hbm.xml</value>
 		</list>
 	</property>
 
@@ -68,11 +69,14 @@
 	<bean id="customerAction" class="cn.takeout.customer.CustomerAction" scope="prototype"/>
 	<bean id="indexAction" class="cn.takeout.index.IndexAction" scope="prototype"/>
 	<bean id="menuAction" class="cn.takeout.menu.MenuAction" scope="prototype"/>
+	<bean id="foodAction" class="cn.takeout.food.FoodAction" scope="prototype"/>
 	
 	<!-- 配置Service -->
 	<bean id="customerService" class="cn.takeout.customer.CustomerService"/>
 	<bean id="titleService" class="cn.takeout.title.TitleService"/>
 	<bean id="menuService" class="cn.takeout.menu.MenuService"/>
+	<bean id="foodService" class="cn.takeout.food.FoodService"/>
+	
 	
 	<!-- 配置Dao -->
 	<bean id="customerDao" class="cn.takeout.customer.CustomerDao">
@@ -83,6 +87,9 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	<bean id="menuDao" class="cn.takeout.menu.MenuDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="foodDao" class="cn.takeout.food.FoodDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	

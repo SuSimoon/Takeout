@@ -24,11 +24,7 @@ public class IndexAction extends ActionSupport {
 	
 	public String index() {
 		List<Title> tList = titleService.findAll();
-		for(Title t : tList) {
-			System.out.println(t.getTname() +":" + t.getMenus());
-		}
-		Map<String, Object> session = ActionContext.getContext().getSession();
-		session.put("tList", tList);
+		ActionContext.getContext().getSession().put("tList", tList);
 		return "indexSuccess";
 	}
 	

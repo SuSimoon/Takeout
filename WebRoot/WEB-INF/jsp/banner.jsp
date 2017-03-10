@@ -86,7 +86,7 @@
 													<ul class="multi-column-dropdown">
 														<h6><s:property value="#t.tname"/></h6>  
 															<s:iterator value="menus" var="m">
-																<li><a href="${pageContext.request.contextPath}/menu_findByMid.action?mid=<s:property value="#m.mid"/>"><s:property value="#m.mname"/></a></li> 
+																<li><a href="${pageContext.request.contextPath}/food_findByMid.action?mid=<s:property value="#m.mid"/>"><s:property value="#m.mname"/></a></li> 
 															</s:iterator>
 													</ul>
 												</div>

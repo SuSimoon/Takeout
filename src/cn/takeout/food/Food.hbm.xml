@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+	<class name="cn.takeout.food.Food" table="food">	
+		<!-- 1.唯一标识 -->
+		<id name="fid" column="fid">
+			<generator class="native"/>
+		</id>
+		<!-- 2.普通属性 -->
+		<property name="fname"/>
+		<property name="price"/>
+		<property name="image"/>
+		<!-- 多对一配置 -->
+		<many-to-one name="menu" class="cn.takeout.menu.Menu" column="mid"/>
+		
+	</class>
+</hibernate-mapping>

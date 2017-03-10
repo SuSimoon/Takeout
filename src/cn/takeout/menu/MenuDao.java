@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import cn.takeout.food.Food;
+
 public class MenuDao extends HibernateDaoSupport {
 
-	public List<Menu> findAll() {
-		return this.getHibernateTemplate().find("from Menu");
-	}
+	
+
 	
 }

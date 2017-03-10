@@ -11,7 +11,12 @@
 		</id>
 		<!-- 2.普通属性 -->
 		<property name="mname"/>
-		<!-- 多对一配置 -->
+		<!-- 3.多对一配置:title-->
 		<many-to-one name="title" class="cn.takeout.title.Title" column="tid"/>
+		<!-- 4.一对多:food -->
+		<set name="foods">
+			<key column="mid"/>
+			<one-to-many class="cn.takeout.food.Food"/>
+		</set>
 	</class>
 </hibernate-mapping>

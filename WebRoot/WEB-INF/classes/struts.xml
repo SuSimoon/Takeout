@@ -47,7 +47,10 @@
    		<action name="menu_*" class="menuAction" method="{1}">
    			
    		</action>
-   		
+   		<!-- foodAction -->
+   		<action name="food_*" class="foodAction" method="{1}">
+   			<result name="foodPage">/WEB-INF/jsp/foodPage.jsp</result>
+   		</action>
    		
     </package>
 
