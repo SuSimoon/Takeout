@@ -155,7 +155,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	//用户退出
 	public String logout() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		request.getSession().invalidate();
+		request.getSession().setAttribute("existCustomer", null);
 		CookieUtils.delCookie(request);
 		return "index";
 	}
