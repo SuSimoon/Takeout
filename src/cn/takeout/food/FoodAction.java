@@ -24,4 +24,5 @@ public class FoodAction extends ActionSupport {
 		ActionContext.getContext().getSession().put("fList", fList);
 		return "foodPage";
 	}
+	
 }

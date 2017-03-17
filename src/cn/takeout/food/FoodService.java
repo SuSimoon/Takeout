@@ -15,4 +15,7 @@ public class FoodService {
 	public List<Food> findByMid(Integer mid) {
 		return foodDao.findByMid(mid);
 	}
+	public Food findByFid(Integer fid) {
+		return foodDao.findByFid(fid);
+	}
 }

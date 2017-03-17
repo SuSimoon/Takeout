@@ -13,12 +13,12 @@
 			<div class="w3ls-header"><!-- header-one --> 
 				<div class="container">
 					<div class="w3ls-header-left">
-						<p>Free home delivery at your doorstep For Above $30</p>
+						<p></p>
 					</div>
 					<div class="w3ls-header-right">
 						<ul> 
 							<li class="head-dpdn">
-								<i class="fa fa-phone" aria-hidden="true"></i> TEL: +01 222 33345 
+								<i class="fa fa-phone" aria-hidden="true"></i> TEL: +011 22 3345 
 							</li> 
 							<!-- 用户已登录 -->
 							<s:if test="#session.existCustomer!=null">
@@ -96,14 +96,14 @@
 										</div>
 									</ul>
 								</li>
-								<li><a href="about.html">About</a></li> 
-								<li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
+								
+								<li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">美食排行 <span class="caret"></span></a>
 									<ul class="dropdown-menu">
 										<li><a href="icons.html">Web Icons</a></li>
 										<li><a href="codes.html">Short Codes</a></li>     
 									</ul>
-								</li>  
-								<li><a href="contact.html">Contact Us</a></li>
+								</li>   
+								<li><a href="contact.html">联系我们</a></li>
 							</ul>
 						</div>
 						<div class="cart cart box_1"> 

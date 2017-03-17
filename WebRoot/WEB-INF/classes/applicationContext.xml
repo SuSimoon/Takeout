@@ -70,13 +70,14 @@
 	<bean id="indexAction" class="cn.takeout.index.IndexAction" scope="prototype"/>
 	<bean id="menuAction" class="cn.takeout.menu.MenuAction" scope="prototype"/>
 	<bean id="foodAction" class="cn.takeout.food.FoodAction" scope="prototype"/>
+	<bean id="cartAction" class="cn.takeout.cart.CartAction" scope="prototype"/>
 	
 	<!-- 配置Service -->
 	<bean id="customerService" class="cn.takeout.customer.CustomerService"/>
 	<bean id="titleService" class="cn.takeout.title.TitleService"/>
 	<bean id="menuService" class="cn.takeout.menu.MenuService"/>
 	<bean id="foodService" class="cn.takeout.food.FoodService"/>
-	
+	<bean id="cartService" class="cn.takeout.cart.CartService"/>
 	
 	<!-- 配置Dao -->
 	<bean id="customerDao" class="cn.takeout.customer.CustomerDao">
@@ -90,6 +91,9 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	<bean id="foodDao" class="cn.takeout.food.FoodDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="cartDao" class="cn.takeout.cart.CartDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	

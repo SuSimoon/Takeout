@@ -45,6 +45,7 @@ public class CustomerService {
 	}
 	//激活成功后修改用户信息
 	public void update(Customer existCustomer) {
+		existCustomer.setPassword(MD5Utils.md5(existCustomer.getPassword()));
 		customerDao.update(existCustomer);
 	}
 	//用户登录

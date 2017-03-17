@@ -43,13 +43,14 @@
    		<action name="index" class="indexAction" method="index">
    			<result name="indexSuccess">/WEB-INF/jsp/index.jsp</result>
    		</action>
-   		<!-- menuAction -->
-   		<action name="menu_*" class="menuAction" method="{1}">
-   			
-   		</action>
+   		
    		<!-- foodAction -->
    		<action name="food_*" class="foodAction" method="{1}">
    			<result name="foodPage">/WEB-INF/jsp/foodPage.jsp</result>
+   		</action>
+   		<!-- cartAction -->
+   		<action name="cart_*" class="cartAction" method="{1}">
+   			<result name="addCartSuccess">/WEB-INF/jsp/foodPage.jsp</result>
    		</action>
    		
     </package>
